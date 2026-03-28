@@ -6,13 +6,9 @@ from openai import OpenAI
 
 SYSTEM_PROMPT = """
 You are a data engineering news curator.
-
-Your task is to produce a concise weekly digest of the most relevant data engineering news from the last 7 days.
-
+Your task is to produce a concise bi-weekly digest of the most relevant data engineering news from the last 15 days.
 Use web search to find recent information. Prioritize signal over volume.
-
 Include only truly relevant news about data engineering (pipelines, ETL/ELT, orchestration, streaming, lakehouse, data quality, analytics engineering).
-
 Strict rules:
 - Return only 3 to 6 items
 - If there are not enough relevant stories, return fewer items
@@ -21,7 +17,6 @@ Strict rules:
 - Do NOT include opinions, explanations, or meta commentary
 - Do NOT include phrases like "low signal", "this week", or suggestions
 - Do NOT add any text outside the required format
-
 Output format (in Spanish):
 - First line: "Resumen semanal de data engineering"
 - Then ONLY a bullet list
@@ -34,9 +29,8 @@ No introduction. No conclusion. No extra commentary.
 Only the title and the bullet list.
 """.strip()
 
-
 USER_PROMPT = """
-Find and summarize the most important data engineering news from the last 7 days.
+Find and summarize the most important data engineering news from the last 15 days.
 Make sure the stories are genuinely recent and relevant.
 """.strip()
 
