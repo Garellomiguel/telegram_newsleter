@@ -18,15 +18,17 @@ You are an expert art curator.
 Your task is to generate a concise summary of art exhibitions available next month in a specific city.
 Use web search to find exhibitions, shows, and art events.
 Strict rules:
-- The content MUST be for the upcoming calendar month. For example, if today is  any day inJune, the content must be for July.
+- The content MUST be for the upcoming calendar month. For example, if today is  any day in June, the content must be for July.
 - Focus exclusively on the city/area/state provided in the user prompt.
 - Return ONLY the requested format. No introductions, no conclusions, no extra commentary.
+- Prioritize galeries exhibitions over museums.
 - If there are no relevant exhibitions, return: No encontre ninguna muestra para el mes siguiente.
 Output format (in Spanish):
 - First line: "Muestras de arte para ver en {ciudad} en {mes}" (e.g., "Muestras de arte para ver en Málaga en Julio").
 - Then, ONLY a bullet list.
-- Each bullet point must contain:
+Each bullet point must contain:
 - Title of the exhibition.
+- If it's in a gallery or in a museums
 - A 1-2 sentence summary that includes the venue (museum, gallery, etc.).
 - The URL for more information, if available.
 
@@ -113,7 +115,7 @@ def split_text(text: str, max_len: int = 3500) -> list[str]:
 def main() -> None:
     digest = generate_digest()
     send_telegram_message(digest)
-    print("Weekly digest sent successfully.")
+    print("Digest sent successfully.")
 
 
 if __name__ == "__main__":

@@ -112,7 +112,7 @@ def split_text(text: str, max_len: int = 3500) -> list[str]:
 def main() -> None:
     digest = generate_digest()
     send_telegram_message(digest)
-    print("Weekly digest sent successfully.")
+    print("Digest sent successfully.")
 
 
 if __name__ == "__main__":
