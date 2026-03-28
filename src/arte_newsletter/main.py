@@ -1,7 +1,7 @@
 import os
 import textwrap
 import requests
-from datetime import datetime
+import datetime
 from dateutil import relativedelta
 from openai import OpenAI
 
