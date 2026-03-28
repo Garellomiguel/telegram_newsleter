@@ -1,9 +1,9 @@
-name: Weekly DE Telegram Bot
+name: Monthly ARTE Telegram Bot
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 11 1,16 * *"
+    - cron: "0 11 15 * *"
 
 jobs:
   run-script:
@@ -26,8 +26,9 @@ jobs:
 
       - name: Run script
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.ARTE_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: "gpt-5.4"
-        run: python src/data_newsletter/main.py
+          ART_NEWS_CITY: "MALAGA PROVINCIA"
+        run: python src/arte_newsletter/main.py
